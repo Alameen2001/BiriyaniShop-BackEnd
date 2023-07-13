@@ -1,0 +1,51 @@
+REGISTER
+  url:'http://127.0.0.1:8000/api/register/' 
+  method:post
+  data:username,email,password
+
+TOKEN
+  url:'http://127.0.0.1:8000/api/token/' 
+  method:post
+  data:username,password
+
+BIRIYANI LIST(along with reviews)
+  url:'http://127.0.0.1:8000/api/biriyani/' 
+  method:get
+  authentication:Token Authentication
+  
+BIRIYANI DETAIL
+  url:'http://127.0.0.1:8000/api/biriyani/:id/' 
+  method:get
+  authentication:Token Authentication
+
+ADD TO CART
+  url:'http://127.0.0.1:8000/api/biriyani/:id/add_to_cart/' 
+  method:post
+  authentication:Token Authentication
+
+CART LIST
+  url:'http://127.0.0.1:8000/api/carts/' 
+  method:get
+  authentication:Token Authentication
+
+PLACE ORDER 
+  url:'http://127.0.0.1:8000/api/biriyani/:id/place_order/' 
+  method:post
+  authentication:Token Authentication
+  data:address
+
+LIST ORDER
+  url:'http://127.0.0.1:8000/api/orders/' 
+  method:get
+  authentication:Token Authentication
+
+ADD REVIEW
+  url:'http://127.0.0.1:8000/api/biriyani/:id/add_review/' 
+  method:post
+  authentication:Token Authentication
+  data:comment,rating
+
+CANCEL ORDER
+  url:'http://127.0.0.1:8000/api/orders/7/cancel_order/' 
+  method:post
+  authentication:Token Authentication

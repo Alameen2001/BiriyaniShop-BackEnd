@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+<body>
+    <a href="{% url 'signout' %}" class="btn btn-outline-danger logout-button">Logout</a>
+<style>
+     body {
+            background-color: #679586; /* Replace with your desired background color */
+        }
+        .logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: transform 0.3s;
+}
+
+.logout-button:hover {
+    transform: scale(1.2);
+}
+</style>
+
+
+</body>
+
+<div class="container">
+    <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table table-success table-striped">
+            <tr>
+                <th class="text-center">Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th class="text-center">Options</th>
+            </tr>
+            {%for biri in biriyani%}
+           <tr>
+              <td>{{biri.name}}</td>
+              <td>{{biri.category}}</td>
+              <td>{{biri.quantity}}</td>
+              <td>{{biri.price}}</td> 
+              <td>
+                <a href="{%url 'biri-detail' biri.id %}" class="btn btn-outline-info">View</a>
+                <a href="{%url 'biri-edit' biri.id %}" class="btn btn-outline-danger">Update</a>
+                <a href="{%url 'biri-delete' biri.id %}" class="btn btn-outline-primary">Delete</a>
+              </td>
+           </tr>
+            {%endfor%}
+        </table>
+    </div>
+    <div class="col-2"></div></div>
+</div>
+</html>
+
+
